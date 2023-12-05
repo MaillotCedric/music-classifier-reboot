@@ -1,4 +1,5 @@
 import streamlit as st
+import boite_outils as bo
 
 uploaded_file = st.file_uploader("Choisir une musique")
 if uploaded_file:
@@ -8,3 +9,4 @@ if uploaded_file:
 
     with open(f"./Upload/{uploaded_file.name}", 'wb') as f: 
         f.write(bytes_data)
+        st.write(f"Musique identifiée comme étant du {bo.get_genre_musical()}")
